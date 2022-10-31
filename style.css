@@ -443,6 +443,68 @@ header.header-active .navbar a{
     color:#fff;
 }
 
+@media (max-width:768px){
 
+    html{
+        font-size: 55%;
+    }
+
+    header #menu{
+        display: block;
+    }
+
+    header .navbar{
+        position: fixed;
+        top:-100rem; left: 0;
+        width: 100%;
+        opacity: 0;
+        background:#fff;
+        border-top: .1rem solid rgba(0,0,0,.3);
+    }
+
+    header .navbar ul{
+        flex-flow: column;
+        padding:2rem 0;
+    }
+
+    header .navbar ul li{
+        margin:1rem 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    header .navbar ul li a{
+        font-size: 2.5rem;
+        color: #333;
+        display: block;
+    }
+
+    header .navbar.nav-toggle{
+        top:8rem;
+        opacity: 1;
+    }
+
+    .register form{
+        width:90%;
+    }
+
+}
+
+
+@media (max-width:500px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .home h1{
+        font-size: 5rem;
+    }
+
+    .register form .inputBox input{
+        width:100%;
+    }
+
+}
 
 
