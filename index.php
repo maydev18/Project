@@ -6,7 +6,8 @@
     <title>UV Fitness</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -29,6 +30,7 @@
         <li><a href="#plan">plan</a></li>
         <li><a href="#register">register</a></li>
         <li><a href="#login">login</a></li>
+        <li><a href="showdetails.php" target = "_blank">users</a></li>
     </ul>
 </nav>
 
@@ -43,6 +45,7 @@
 <a href="#plan"><button class="btn">get started</button></a>
 
 </section>
+
 
 
 
@@ -266,37 +269,53 @@
 
 <h1 class="heading">register now</h1>
 
-<form action="">
+<form   method = "post">
 
     <div class="inputBox">
-        <input type="text" placeholder="first name">
-        <input type="text" placeholder="last name">
+        <input type="text" placeholder="first name" name = "fname" id ="fname">
+        <input type="text" placeholder="last name" name = "lname" id ="lname">
     </div>
 
     <div class="inputBox">
-        <input type="email" placeholder="your email">
-        <input type="number" placeholder="your number">
+        <input type="email" placeholder="your email" name = "email" id ="email">
+        <input type="number" placeholder="your number" name = "number" id ="number">
     </div>
 
-    <textarea name="" id="" cols="30" rows="10" placeholder="message"></textarea>
+    <textarea  cols="30" rows="10" placeholder="message" name = "message" id ="message"></textarea>
 
-    <input type="submit" class="btn" value="register">
-
+    <input type="submit" class="btn" value="register" action="index.php">
 </form>
-
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "users";
+    //creating a connection
+    $conn = mysqli_connect($servername , $username , $password , $database);
+    if(!$conn){
+        die("Connection to database failed" . mysqli_connect_error());
+    }
+    if($_SERVER['REQUEST_METHOD']=="POST"){
+      $fname = $_POST['fname'];
+      $lname = $_POST['lname'];
+      $email = $_POST['email'];
+      $number = $_POST['number'];
+      $message = $_POST['message'];
+      $sql =" INSERT INTO `user details` (`first Name`, `last name`, `email`, `phone`, `message`) VALUES ('$fname', '$lname', '$email', '$number', '$message')";
+      $result = mysqli_query($conn , $sql);
+      if($result){
+        echo '<script>alert("submitted Successfully")</script>';
+      }
+      else{
+        echo "no insertion";
+      }
+    }
+?>
 </section>
-
-
-
 <section class="footer">
     created by <a href="#">M&M Enterprises</a> | all rights reserved.
 </section>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <script src="js.js"></script>
-
-
 </body>
 </html>
