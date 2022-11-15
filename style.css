@@ -22,6 +22,7 @@
 html{
     font-size: 62.5%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .btn{
@@ -123,10 +124,9 @@ header.header-active .logo,
 header.header-active .navbar a{
     color:#333;
 }
-
 .home{
     min-height: 100vh;
-    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url(home.jpg) no-repeat;
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url(images/home.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -380,7 +380,7 @@ header.header-active .navbar a{
 }
 
 .register{
-    min-height: 90vh;
+    height: 100vh;
     text-align: center;
     background:#000;
     padding-bottom: 3rem;
@@ -391,6 +391,7 @@ header.header-active .navbar a{
 }
 
 .register form{
+    text-transform: none;
     width:75%;
     margin:0 auto;
 }
@@ -504,7 +505,6 @@ header.header-active .navbar a{
     .register form .inputBox input{
         width:100%;
     }
-
 }
 
 

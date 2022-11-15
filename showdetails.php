@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true || $_SESSION['username']!='admin@gym')
+    {
+      header("location: loginform.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet"> 
+    
     <style>
       *{
         margin: 0;
@@ -25,47 +34,38 @@
           <tr>
             <th scope="col">S. No.</th>
             <th scope="col">Date</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Full Name</th>
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
-            <th scope="col">message</th>
+            <th scope="col">Plan</th>
+            <th scope="col">Message</th>
             <!-- <th scope="col">Action</th> -->
           </tr>
         </thead>
         <tbody>
             <?php
     //connecting to user database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "users";
-
-    //creating a connection
-    $conn = mysqli_connect($servername , $username , $password , $database);
-    if(!$conn){
-        die("Connection to database failed" . mysqli_connect_error());
-    }
-    $sql = "select * from `user details`";
-    $result = mysqli_query($conn , $sql);
-    $num = mysqli_num_rows($result);//gives total number of rows
-    $sno = 0;
-      while($row = mysqli_fetch_assoc($result)){
-        $sno+=1;
-        $msg = "
-              <tr>
-              <th scope = 'row'>" . $sno . "</th>
-              <td>". $row["date"] ."</td>
-              <td>". $row["first Name"] ."</td>
-              <td>". $row["last name"] ."</td>
-              <td>". $row["email"] ."</td>
-              <td>". $row["phone"] ."</td>
-              <td>". $row["message"] ."</td>
-              </tr>
-            ";
-          echo $msg;
-      }
-?>
+              include_once("config.php");
+              $sql = "select * from `user details`";
+              $result = mysqli_query($conn , $sql);
+              $num = mysqli_num_rows($result);//gives total number of rows
+              $sno = 0;
+                while($row = mysqli_fetch_assoc($result)){
+                  $sno+=1;
+                  $msg = "
+                        <tr>
+                        <th scope = 'row'>" . $sno . "</th>
+                        <td>". $row["date"] ."</td>
+                        <td>". $row["fullname"] ."</td>
+                        <td>". $row["email"] ."</td>
+                        <td>". $row["phone"] ."</td>
+                        <td>". $row["plan"] ."</td>
+                        <td>". $row["message"] ."</td>
+                        </tr>
+                      ";
+                    echo $msg;
+                  }
+              ?>
         </tbody>
       </table>
     </div>

@@ -4,40 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UV Fitness</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js.js"></script>
+    <script>
+        function register(plan){
+            localStorage.setItem("plan" , plan);
+            window.open("sendrequest.php");
+        }
+    </script>
 </head>
 <body>
-    
-
-
-<header>
-
-<a href="#" class="logo"><span>UV</span>FITNESS</a>
-
-<div id="menu" class="fas fa-bars"></div>
-
-<nav class="navbar">
-    <ul>
-        <li><a class="active" href="#home">home</a></li>
-        <li><a href="#about">about</a></li>
-        <li><a href="#service">service</a></li>
-        <li><a href="#trainer">trainer</a></li>
-        <li><a href="#plan">plan</a></li>
-        <li><a href="#register">register</a></li>
-        <li><a href="#login">login</a></li>
-        <li><a href="showdetails.php" target = "_blank">users</a></li>
-    </ul>
-</nav>
-
-</header>
-
-
-
+<?php
+include_once("header.php");
+?>
 <section class="home" id="home">
 
 <h1>it's never too easy but <br> you have to try</h1>
@@ -54,7 +35,7 @@
 <div class="row">
 
     <div class="image">
-        <img src="about.jpg" alt="">
+        <img src="images/about.jpg" alt="img">
     </div>
 
     <div class="content">
@@ -81,7 +62,7 @@
 <div class="box-container">
 
     <div class="box">
-        <img src="img1.jpg" alt="">
+        <img src="images/img1.jpg" alt="">
         <div class="info">
             <h3>Cardio</h3>
             <p>Cardio exercise is any rhythmic activity that raises your heart rate into your target heart rate zone. This is the zone where you burn the most fat and calories.</p>
@@ -90,7 +71,7 @@
     </div>
 
     <div class="box">
-        <img src="img2.jpg" alt="">
+        <img src="images/img2.jpg" alt="">
         <div class="info">
             <h3>yoga</h3>
             <p>Yoga is a mind and body practice. Various styles of yoga combine physical postures, breathing techniques, and meditation or relaxation.</p>
@@ -99,7 +80,7 @@
     </div>
 
     <div class="box">
-        <img src="img3.jpg" alt="">
+        <img src="images/img3.jpg" alt="">
         <div class="info">
             <h3>Personal trainer</h3>
             <p>creates one-on-one fitness programmes for their clients, motivating and guiding them to achieve their goals.</p>
@@ -108,7 +89,7 @@
     </div>
 
     <div class="box">
-        <img src="img4.jpg" alt="">
+        <img src="images/img4.jpg" alt="">
         <div class="info">
             <h3>equipments</h3>
             <ul>
@@ -125,7 +106,7 @@
     </div>
 
     <div class="box">
-        <img src="img5.jpg" alt="">
+        <img src="images/img5.jpg" alt="">
         <div class="info">
             <h3>boxing</h3>
             <p>Typical boxing exercise includes movement and footwork drills to evade punches, as well as punching drills on equipment like heavy bags, speed bags, and focus mitts.</p>
@@ -134,7 +115,7 @@
     </div>
 
     <div class="box">
-        <img src="img6.jpg" alt="">
+        <img src="images/img6.jpg" alt="">
         <div class="info">
             <h3>weight lifting</h3>
             <p>Weight training is a type of strength training that uses weights for resistance. Weight training provides a stress to the muscles that causes them to adapt and get stronger.</p>
@@ -155,7 +136,7 @@
 <div class="box-container">
 
     <div class="box">
-        <img src="coach1.png" alt="">
+        <img src="images/coach1.png" alt="">
         <div class="info">
             <h3>Manny</h3>
         </div>
@@ -168,7 +149,7 @@
     </div>
 
     <div class="box">
-        <img src="coach2.png" alt="">
+        <img src="images/coach2.png" alt="">
         <div class="info">
             <h3>Gwen</h3>
         </div>
@@ -229,9 +210,8 @@
             <li><i class="fas fa-check"></i>training</li>
             <li><i class="fas fa-check"></i>protein powder</li>
         </ul>
-        <a href="#"><button class="btn">check out</button></a>
+        <button class="btn" onclick="register('basic')">check out</button>
     </div>
-
     <div class="box">
         <h3 class="title">standard</h3>
         <h3 class="price">₹4,000</h3>
@@ -243,7 +223,7 @@
             <li><i class="fas fa-check"></i>training</li>
             <li><i class="fas fa-check"></i>protein powder</li>
         </ul>
-        <a href="#"><button class="btn">check out</button></a>
+        <a><button class="btn" onclick="register('standard')">check out</button></a>
     </div>
 
     <div class="box">
@@ -257,65 +237,16 @@
             <li><i class="fas fa-check"></i>training</li>
             <li><i class="fas fa-check"></i>protein powder</li>
         </ul>
-        <a href="#"><button class="btn">check out</button></a>
+        <a><button class="btn" onclick="register('premium')">check out</button></a>
     </div>
 
 </div>
 
 </section>
 
-
-<section class="register" id="register">
-
-<h1 class="heading">register now</h1>
-
-<form   method = "post">
-
-    <div class="inputBox">
-        <input type="text" placeholder="first name" name = "fname" id ="fname">
-        <input type="text" placeholder="last name" name = "lname" id ="lname">
-    </div>
-
-    <div class="inputBox">
-        <input type="email" placeholder="your email" name = "email" id ="email">
-        <input type="number" placeholder="your number" name = "number" id ="number">
-    </div>
-
-    <textarea  cols="30" rows="10" placeholder="message" name = "message" id ="message"></textarea>
-
-    <input type="submit" class="btn" value="register" action="index.php">
-</form>
-<?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "users";
-    //creating a connection
-    $conn = mysqli_connect($servername , $username , $password , $database);
-    if(!$conn){
-        die("Connection to database failed" . mysqli_connect_error());
-    }
-    if($_SERVER['REQUEST_METHOD']=="POST"){
-      $fname = $_POST['fname'];
-      $lname = $_POST['lname'];
-      $email = $_POST['email'];
-      $number = $_POST['number'];
-      $message = $_POST['message'];
-      $sql =" INSERT INTO `user details` (`first Name`, `last name`, `email`, `phone`, `message`) VALUES ('$fname', '$lname', '$email', '$number', '$message')";
-      $result = mysqli_query($conn , $sql);
-      if($result){
-        echo '<script>alert("submitted Successfully")</script>';
-      }
-      else{
-        echo "no insertion";
-      }
-    }
-?>
-</section>
 <section class="footer">
     created by <a href="#">M&M Enterprises</a> | all rights reserved.
 </section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js.js"></script>
+
 </body>
 </html>
