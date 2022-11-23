@@ -10,6 +10,20 @@ if (isset($_SESSION['username'])) {
     header("location:welcome.php");
   }
 }
+if(isset($_SESSION['logerr']) && $_SESSION['logerr']=='password updated successfully'){
+  echo '<div class="alert alert-success alert-dismissible fade show" role="alert">'.$_SESSION['logerr'].'
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>';
+}
+else if(isset($_SESSION['logerr'])){
+	if($_SESSION['logerr']!=''){
+		echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">'.$_SESSION['logerr'].'
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>';
+	}
+}
+$logerr = "";
+$_SESSION['logerr']="";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +33,8 @@ if (isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <style type="text/css">
     #inputbtn:hover{cursor:pointer;}
@@ -45,6 +60,10 @@ if (isset($_SESSION['username'])) {
                   <input type="submit" id="inputbtn" name="login_submit" value="Login" class="btn btn-primary">
                   <button type="button" class="edit btn btn-primary" onclick = "window.open('register.php','_self');">Register</button>
                 </div>
+                <br>
+                <div class="centerbutto">
+                  <a href="recoverpass.php">Forget Password</a>
+                </div>
               </form>
             </center>
             </div>
@@ -58,6 +77,8 @@ if (isset($_SESSION['username'])) {
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
   </body>
 </html>

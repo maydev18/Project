@@ -3,13 +3,21 @@ include_once("config.php");
 session_start();
 // check if the user is already logged in
 if (isset($_SESSION['username'])) {
-  if($_SESSION['username'] == 'admin@gym'){
-    header("location:dashboard.php");
-  }
-  else{
-    header("location:welcome.php");
-  }
+	if ($_SESSION['username'] == 'admin@gym') {
+		header("location:dashboard.php");
+	} else {
+		header("location:welcome.php");
+	}
 }
+if (isset($_SESSION['err'])) {
+	if ($_SESSION['err'] != '') {
+		echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">' . $_SESSION['err'] . '
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>';
+	}
+}
+$err = "";
+$_SESSION['err'] = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	$email = $_POST['username'];
 	$password = "";
@@ -17,14 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	$result = mysqli_query($conn, $sql);
 	$sql = "SELECT * FROM `login` WHERE `username` = '$email'";
 	$result1 = mysqli_query($conn, $sql);
-	if (mysqli_num_rows($result) == 0 || mysqli_num_rows($result1) == 1) {
+	if (mysqli_num_rows($result) == 0) {
+		$_SESSION['err'] = "Please ask gym owner to add you in gym";
 		header("location:register.php");
-	} 
-	else {
+	} else if (mysqli_num_rows($result1) == 1) {
+		$_SESSION['err'] = "User already registered, please login to continue";
+		header("location:register.php");
+	} else {
 		if (empty(trim($_POST['password']))) {
-			$password_err = "Password cannot be blank";
+			$_SESSION['err'] = "Password cannot be blank";
 		} elseif (strlen(trim($_POST['password'])) < 5) {
-			$password_err = "Password cannot be less than 5 characters";
+			$_SESSION['err'] = "Password cannot be less than 5 characters";
 		} else {
 			$password = trim($_POST['password']);
 			$password = password_hash($password, PASSWORD_DEFAULT);
@@ -33,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			if ($result) {
 				header("location: loginform.php");
 			} else {
-				echo "Something went wrong... cannot redirect!";
+				$_SESSION['err'] = "cannot redirect, something went wrong";
 			}
 		}
 	}
@@ -49,8 +60,8 @@ mysqli_close($conn);
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <style type="text/css">
 	#inputbtn:hover {
@@ -94,13 +105,12 @@ mysqli_close($conn);
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-		crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
-		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+					integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+					crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 		crossorigin="anonymous"></script>
 </body>
 

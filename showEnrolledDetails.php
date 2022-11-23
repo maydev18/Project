@@ -37,6 +37,9 @@ session_start();
 </script>
 
 <body>
+<?php
+  include_once('dashboardheader.php');
+  ?>
   <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -127,7 +130,6 @@ session_start();
         document.getElementById('phone').value = phone;
         document.getElementById('plan').value = plan;
       })
-
     })
     deletes = document.getElementsByClassName('delete');
     Array.from(deletes).forEach((element) => {
@@ -135,7 +137,7 @@ session_start();
         tr = e.target.parentNode.parentNode;
         id = tr.getElementsByTagName('td')[0].innerText;
         if (confirm("Do you really want to delete this record?")) {
-          window.location = `/manav/edit.php?delete=${id}`;
+          window.location = `edit.php?delete=${id}`;
         }
       })
     })
