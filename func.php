@@ -20,23 +20,21 @@ if (isset($_POST['pat_submit'])) {
         )";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        echo "<script>alert('Member added.')</script>";
-        echo "<script>window.open('dashboard.php','_self')</script>";
+        $to_email = $email;
+        $subject = "Welcome To UV Fitness Gym";
+        $body = "Your request to join UV Fitness gym is successfully initiated and processed. Kindly register yourself into the gym to gain access to your dashboard from where you can pay the gym fee and start your journey with us";
+        $headers = "From: ms772254@gmail.com";
+        if (mail($to_email, $subject, $body, $headers)) {
+            echo "<script>alert('Member added and enrollment mail is succesfully sent.')</script>";
+            echo "<script>window.open('dashboard.php','_self')</script>";
+        } else {
+            echo "<script>alert('Member added but failed to send the mail.')</script>";
+            echo "<script>window.open('dashboard.php','_self')</script>";
+        }
     }
     else{
         echo "<script>alert('Member Not added.')</script>";
         echo "<script>window.open('dashboard.php','_self')</script>";
-    }
-}
-if (isset($_POST['tra_submit'])) {
-    $Trainer_id = $_POST['Trainer_id'];
-    $Name = $_POST['Name'];
-    $phone = $_POST['phone'];
-    $query = "insert into Trainer(Trainer_id,Name,phone)values('$Trainer_id','$Name','$phone')";
-    $result = mysqli_query($con, $query);
-    if ($result) {
-        echo "<script>alert('Trainer added.')</script>";
-        echo "<script>window.open('admin-panel.php','_self')</script>";
     }
 }
 ?>

@@ -150,7 +150,7 @@ $_SESSION['welerr'] = "";
         }
         $cal = $total * 0.06; //per second cal burnt is 0.2(estimate)
         $total = round($total / 3600, 2);
-        if ($num <= 7) {
+        if ($num <= 7 && $num!=0) {
           $avg = $total / $num;
         } else {
           $avg = $total / 7;
