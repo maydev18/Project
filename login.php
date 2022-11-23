@@ -3,10 +3,9 @@ include_once("config.php");
 session_start();
 // check if the user is already logged in
 if (isset($_SESSION['username'])) {
-  if($_SESSION['username'] == 'admin@gym'){
+  if ($_SESSION['username'] == 'admin@gym') {
     header("location:dashboard.php");
-  }
-  else{
+  } else {
     header("location:welcome.php");
   }
 }
@@ -18,21 +17,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   $sql = "SELECT `username`, `password` FROM `login` WHERE `username` = '$username'";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) == 0) {
+    $_SESSION['logerr'] = 'No user exists';
     header("location: loginform.php");
-  } 
-  else {
+  } else {
     $hashedPwd = mysqli_fetch_assoc($result)['password'];
-    if (password_verify($password,$hashedPwd)){
+    if (password_verify($password, $hashedPwd)) {
       session_start();
       $_SESSION["username"] = $username;
       $_SESSION["loggedin"] = true;
-      if($username == 'admin@gym'){
+      if ($username == 'admin@gym') {
         header("location:dashboard.php");
-      }
-      else{
+      } else {
         header("location:welcome.php");
       }
     } else {
+      $_SESSION['logerr'] = 'Please enter correct password';
       header("location:loginform.php");
     }
   }

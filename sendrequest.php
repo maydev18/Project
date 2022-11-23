@@ -14,32 +14,26 @@
     padding: 20px;
     background-color: #f44336;
     color: white;
+    
 }
     #statusSuccess .alert {
     padding: 20px;
     background-color: #04AA6D;
     color: white;
-}
+    z-index: 10000;
+  }
+  header{
+    position: absolute;
+  }
   </style>
 </head>
 <body>
-<header>
-<a href="index.php" class="logo"><span>UV</span>FITNESS</a>
-
-<div id="menu" class="fas fa-bars"></div>
-
-<nav class="navbar">
-    <ul>
-        <li><a class="active" href="index.php">home</a></li>
-        <li><a href="loginform.php">login</a></li>
-    </ul>
-</nav>
-</header>
-  <div id="statusFailed"></div>
+<div id="statusFailed"></div>
   <div id="statusSuccess"></div>
+  
   <section class="register" id="register">
     <h1 class="heading"></h1>
-    <form action="register.php"  method = "post">
+    <form action="sendrequest.php"  method = "post">
         <div class="inputBox">
             <input type="text" placeholder="full name" name = "fullname" id ="fullname">
         </div>
