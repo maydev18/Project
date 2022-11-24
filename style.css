@@ -245,7 +245,7 @@ header.header-active .navbar a{
 .trainer{
     min-height: 100vh;
     text-align: center;
-    background:#333;
+    background:rgb(14, 12, 12);
 }
 
 .trainer .heading{
@@ -428,12 +428,144 @@ header.header-active .navbar a{
     background:var(--orange);
 }
 
-.footer{
+.map{
+    background-color: #000;
+}
+
+.map h1{
+    display: inline-block;
+    padding: 1rem 0;
+    font-size: 3rem;
+    border-bottom: 0.2rem solid var(--orange);
+    color: #eee;
+    padding-top: 0.5%;
+
+}
+#map{
+    height: fit-content;
+    width: fit-content;
+    background: black;
+    margin: auto;
+    margin-top: 5vh;
+    overflow-x: hidden !important;
+ }
+iframe{
+     overflow-x: hidden;
+     width: 80vw;
+ }
+
+footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: rgb(255, 255, 255);
     color:#eee;
     background:#111;
-    text-align: center;
+    /* text-align: center; */
     padding:2rem 1rem;
+    font-size: 4rem;
+}
+
+footer i,span{
+    font-size:1.75rem;
+    margin-top: 1rem;
+}
+
+.footer-div{
+    width:400px;
+    min-height: 300px;
+    margin:2rem ;
+}
+
+.footer-div-heading{
+    font-size: 3rem;
+}
+
+.footer-div-heading hr{
+    width: 5rem;
+    color: var(--orange);
+    margin-top: -0.2rem;
+    height: 0.3rem;
+}
+
+#gym-base{
+    padding-left: 1rem;
+}
+
+#gym-base-desc{
+    /* font-size: 1.25rem; */
+    font-size: 1.5rem;
+}
+
+.address{
+    color: rgb(253, 250, 250);
+    display: block;
+    margin-top: 2rem;
+}
+
+.address:hover{
+    color: var(--orange);
+}
+
+.address i{
+    padding-right:0.75rem;
+}
+
+#footer-about-list ul{
+    list-style: none;
     font-size: 2rem;
+    padding-left: 0 !important;
+}
+
+#footer-about-list ul li{
+    padding: 5px 0;
+    font-size: 2rem;
+
+}
+
+#footer-about-list ul a{
+    text-decoration: none;
+    color:rgb(245, 242, 242);
+    transition: all 0.5s;
+}
+
+#footer-about-list ul li a:hover{
+    color: var(--orange);
+
+}
+
+#footer-about-list ul li::before{
+    content: '\2192';
+    color:var(--orange);
+}
+
+.timings-content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -1rem;
+}
+
+.timings-hr{
+    color: var(--orange);
+    margin-top: 4px;
+    height: 0.1rem;
+}
+
+#footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background-color: rgba(252, 250, 250, 0.76);
+    color: rgb(244, 242, 242);
+}
+
+ .footer-base{
+    color:#eee;
+    background:rgb(0, 0, 0);
+    text-align: center;
+    padding:1rem 1rem;
+    font-size: 1.5rem;
 }
 
 .footer a{
@@ -442,7 +574,9 @@ header.header-active .navbar a{
 
 .footer a:hover{
     color:#fff;
-}
+} 
+
+
 
 @media (max-width:768px){
 

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UV Fitness</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -96,7 +98,6 @@ include_once("header.php");
                 <li>Treadmill</li>
                 <li>Cross-Trainer</li>
                 <li>Exercise Bike</li>
-                <li>Rowing Machine</li>
                 <li>Gym Bench</li>
                 <li>Weight bar</li>
                 <li>kettlebell</li>
@@ -136,56 +137,52 @@ include_once("header.php");
 <div class="box-container">
 
     <div class="box">
-        <img src="images/coach1.png" alt="">
+        <img src="images/coach1.jpg" alt="">
         <div class="info">
-            <h3>Manny</h3>
+            <h3>Karan Soni</h3>
         </div>
         <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
             <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
         </div>
     </div>
 
     <div class="box">
-        <img src="images/coach2.png" alt="">
+        <img src="images/coach3.jpg" alt="">
         <div class="info">
-            <h3>Gwen</h3>
+            <h3>Sumit</h3>
         </div>
         <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
             <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
         </div>
     </div>
 
-    <!-- <div class="box">
-        <img src="coach3.png" alt="">
+    <div class="box">
+        <img src="images/coach2.jpg" alt="">
         <div class="info">
-            <h3>john deo</h3>
+            <h3>Jatin</h3>
         </div>
         <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
+            <a href="https://www.instagram.com/p/CUPHdHXl34L/" class="fab fa-instagram"></a>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="box">
-        <img src="coach4.png" alt="">
+    <div class="box">
+        <img src="images/coach4.jpg" alt="">
         <div class="info">
-            <h3>john deo</h3>
+            <h3>Ravi Kumar</h3>
         </div>
         <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
             <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
         </div>
-    </div> -->
+    </div>
 
 </div>
 
@@ -244,9 +241,75 @@ include_once("header.php");
 
 </section>
 
-<section class="footer">
-    created by <a href="#">M&M Enterprises</a> | all rights reserved.
+<section class="map">
+<h1>find us here</h1>
+<div id="map" class="container-fluid">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d111978.36495716193!2d77.13466303671198!3d28.709864563424528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x390cfda533d5b65f%3A0x7af89b42d5016d91!2s851%2C%20Banda%20Bahadur%20Marg%2C%20Dhaka%20Village%2C%20Mukherjee%20Nagar%2C%20Delhi%2C%20110009!3m2!1d28.7098826!2d77.20470329999999!5e0!3m2!1sen!2sin!4v1669234345806!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
 </section>
+
+<section class="footer">
+<footer>
+      <div id="gym-base" class="footer-div">
+          <div class="footer-div-heading">Gym Base<hr></div>
+          <div id="gym-base-desc">
+              <br>One of the best gym in Model Town.<br> Owned and operated by a Personal Trainer with over 7 years of experience.
+          </div>
+          <div class="contact-info">
+                <span class="address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>51s, Model Town,New Delhi</span>
+                </span>
+              <span class="address">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8130367206</span>
+                </span>
+              <span class="address">
+                    <i class="fas fa-envelope"></i>
+                    <span>UVfitness08@gmail.com</span>
+                </span>
+          </div>
+      </div>
+      
+      <div id="timings" class="footer-div">
+          <div class="footer-div-heading">Opening Hours<hr></div>
+          <div class="timings-content">
+              <span class="day"><br>Monday</span>
+              <span class="time"><br>6:00 AM - 9:30 PM &nbsp;</span>
+          </div>
+          <hr class="timings-hr">
+          <div class="timings-content">
+              <span class="day">Tuesday</span>
+              <span class="time">6:00 AM - 9:30 PM &nbsp;</span>
+          </div>
+          <hr class="timings-hr">
+          <div class="timings-content">
+              <span class="day">Wednesday</span>
+              <span class="time">6:00 AM - 9:30 PM &nbsp;</span>
+          </div>
+          <hr class="timings-hr">
+          <div class="timings-content">
+              <span class="day">Thursday</span>
+              <span class="time">6:00 AM - 9:30 PM &nbsp;</span>
+          </div>
+          <hr class="timings-hr">
+          <div class="timings-content">
+              <span class="day">Friday</span>
+              <span class="time">6:00 AM - 9:30 PM &nbsp;</span>
+          </div>
+          <hr class="timings-hr">
+          <div class="timings-content">
+              <span class="day">Saturday</span>
+              <span class="time">6:00 AM - 9:30 PM &nbsp;</span>
+          </div>
+          <hr class="timings-hr">
+      </div>
+
+  </footer>
+</section>
+
+<section class="footer-base">
+    © Copyright - UV Fitness and M&M Enterprises 
 
 </body>
 </html>
