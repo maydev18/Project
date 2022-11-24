@@ -155,6 +155,7 @@ $_SESSION['welerr'] = "";
         } else {
           $avg = $total / 7;
         }
+        $avg = round($avg,2);
         $_SESSION['totalWorkoutHours'] = $total;
         $_SESSION['averageWorkoutHours'] = $avg;
         $_SESSION['calories'] = $cal;

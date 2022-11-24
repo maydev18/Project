@@ -8,7 +8,7 @@ if (isset($_SESSION['otp'])) {
             header("location:setnewpass.php");
         }
         else{
-            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert"> OTP didnot matched
+            echo '<div class="alert alert-warning alert-dismissible fade show" role="alert"> OTP didnot match
 		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 	  </div>';
         }
