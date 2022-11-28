@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   } else {
     $hashedPwd = mysqli_fetch_assoc($result)['password'];
     if (password_verify($password, $hashedPwd)) {
-      session_start();
       $_SESSION["username"] = $username;
       $_SESSION["loggedin"] = true;
       if ($username == 'admin@gym') {

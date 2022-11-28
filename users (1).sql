@@ -25,7 +25,7 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getbatch` (IN `id` INT)   SELECT * FROM Trainee WHERE Batch_id=id$$
+-- CREATE DEFINER=`root`@`localhost` PROCEDURE `getbatch` (IN `id` INT)   SELECT * FROM Trainee WHERE Batch_id=id$$
 
 DELIMITER ;
 

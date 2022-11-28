@@ -33,7 +33,7 @@
           $result = mysqli_query($conn, $query);
           $row = mysqli_fetch_assoc($result);
           $name = $row['name'];
-          $plan = $row['plan'];
+          $plan = strtolower($row['plan']);
           $id = $row['id'];
           $cost;
           if($plan == "basic")$cost =2000;
