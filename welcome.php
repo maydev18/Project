@@ -1,3 +1,18 @@
+<?php
+include_once("config.php");
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+  header("location: loginform.php");
+}
+if (isset($_SESSION['welerr'])) {
+  if ($_SESSION['welerr'] != '') {
+    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">' . $_SESSION['welerr'] . '
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+  }
+}
+$welerr = "";
+$_SESSION['welerr'] = "";
+?>
 <!doctype html>
 <html lang="en">
 
@@ -20,21 +35,6 @@
     }
   </script>
 </head>
-<?php
-include_once("config.php");
-session_start();
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-  header("location: loginform.php");
-}
-if (isset($_SESSION['welerr'])) {
-  if ($_SESSION['welerr'] != '') {
-    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">' . $_SESSION['welerr'] . '
-		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-  }
-}
-$welerr = "";
-$_SESSION['welerr'] = "";
-?>
 
 <body>
   <nav class="navbar navbar-expand-lg bg-light">
@@ -53,9 +53,9 @@ $_SESSION['welerr'] = "";
           $plan = $row['plan'];
           $id = $row['id'];
           $cost;
-          if ($plan == "basic")
+          if (strtolower($plan) == "basic")
             $cost = 2000;
-          else if ($plan == "standard")
+          else if (strtolower($plan) == "standard")
             $cost = 4000;
           else
             $cost = 18000;

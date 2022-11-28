@@ -13,9 +13,9 @@ $plan = $row['plan'];
 $id = $row['id'];
 $phone = $row['phone'];
 $cost;
-if ($plan == "basic")
+if (strtolower($plan) == "basic")
   $cost = 2000;
-else if ($plan == "standard")
+else if (strtolower($plan) == "standard")
   $cost = 4000;
 else
   $cost = 18000;

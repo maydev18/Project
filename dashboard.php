@@ -29,7 +29,6 @@ session_start();
   <br><br>
         <div class="container">
         <div class="card">
-
 <div class="card-body" style="background-color:#3498DB;color:FFFFFF;">
   <h3>Register new members</h3>
 </div>
@@ -44,8 +43,13 @@ session_start();
   <label>Phone</label>
   <input required type="number" name="phone" class="form-control"><br>
   <label>Plan</label>
-  <input required type="text" name="plan" class="form-control"><br>
-  <input type="submit" class="btn btn-primary" name="pat_submit" value="Register">
+  <select class="form-select" aria-label="Default select example" name="plan">
+    <option selected>Choose a plan</option>
+    <option value="Basic">Basic</option>
+    <option value="Standard">Standard</option>
+    <option value="Premium">Premium</option>
+  </select>
+  <input type="submit" class="btn btn-primary mt-2" name="pat_submit" value="Register">
 </form>
 </div>
         </div>

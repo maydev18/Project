@@ -9,7 +9,7 @@ if (isset($_POST['pat_submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $plan = $_POST['plan'];
+    $plan = strtolower($_POST['plan']);
     $query = "insert into `enrolled details`(`id`,`name`,`email`,`phone`,`plan`)values('$id','$name','$email','$phone','$plan')";
     $result = mysqli_query($conn, $query);
     $sql = "CREATE TABLE `{$email}` (
